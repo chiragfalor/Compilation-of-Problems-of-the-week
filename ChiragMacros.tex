@@ -1,0 +1,34 @@
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[thinc]{esdiff}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{mdframed}
+\usepackage{hyperref}
+
+\mdfdefinestyle{pstyle}{linecolor=blue, backgroundcolor=red!5, nobreak=true}
+\mdfdefinestyle{hstyle}{linecolor=blue, backgroundcolor=yellow!10, nobreak=true}
+\mdfdefinestyle{sstyle}{linecolor=blue, backgroundcolor=green!5, nobreak=true}
+
+\usepackage[british]{babel}
+\usepackage[showdow]{datetime2}
+\DTMlangsetup[en-GB]{ord=raise,monthyearsep={,\space}}
+\DTMsetdatestyle{en-GB}
+
+\newcommand{\ans}{\textbf{\emph{Answer}:}\: }
+
+
+\newcounter{problem}[section]
+\newenvironment{problem}[2][\today]{\refstepcounter{problem}\subsection{#1} \par\medskip
+\begin{mdframed}[style=pstyle]
+\textbf{Problem~\textit{\theproblem}. (\texttt{#2})}\\[1ex] }{\end{mdframed}\medskip}
+
+\newcounter{hint}[subsection]
+\newenvironment{hint}[1][]{\refstepcounter{hint} \par \medskip \begin{mdframed}[style=hstyle]
+\textbf{Hint~\sffamily{\thehint}: \:}}
+{ \end{mdframed} \medskip}
+
+\newenvironment{solution}[1][]{\par \medskip \begin{mdframed}[style=sstyle] 
+#1 \textbf{\emph{Solution}}. \\[1ex] } {\hfill \qedsymbol \\ \end{mdframed} \medskip}
